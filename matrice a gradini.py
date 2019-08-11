@@ -1,7 +1,8 @@
-def quartotipo(i,j,M): #scambia i-esima riga con j-esima riga
-    c=M[j]
-    M[j]=M[i]
-    M[i]=c
+def quartotipo(i,j,M): 
+    # Scambia i-esima riga con j-esima riga
+    c = M[j]
+    M[j] = M[i]
+    M[i] = c
 
 m = int(input('Inserisci il numero di righe della matrice: '))
 n = int(input('Inserisci il numero di colonne della matrice: '))
@@ -22,25 +23,26 @@ v = 0
 i = 0
 j = 0
 val = 0
-while val<m:
-    while v==val:
-        while v==val and j<m and i<n:
-            if M[j][i]!=0:
-                v+=1 
+
+while val < m:
+    while v == val:
+        while v == val and j < m and i < n:
+            if M[j][i] != 0:
+                v += 1 
                 quartotipo(val,j,M)
             else:
                 j+=1
-        if v==val:
-            i+=1
+        if v == val:
+            i += 1
             j = val
             
-    k = val+1
+    k = val + 1
     
-    while k<m:
-        if M[k][i]!=0:
-            coef=M[k][i]/M[val][i]
+    while k < m:
+        if M[k][i] != 0:
+            coef = M[k][i] / M[val][i]
             for count in range(n):
-                M[k][count]+= -coef*M[val][count]
+                M[k][count] += -coef*M[val][count]
         k+=1
         
     val+=1
